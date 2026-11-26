@@ -329,6 +329,7 @@ export default function GachaApp() {
       )}
       {gate && <Gate onEnter={enter} />}
       <Toasts toasts={toasts} />
+      <footer className="credit">Made by UX/UI Team</footer>
     </>
   );
 }

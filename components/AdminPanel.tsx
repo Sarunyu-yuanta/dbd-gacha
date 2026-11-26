@@ -22,7 +22,7 @@ function toLocalInput(iso: string) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
-/** ⚙️ Settings: participants, event date, undo/reset, dev mode. */
+/** 🛠️ Settings: participants, event date, undo/reset, dev mode. */
 export default function AdminPanel(props: Props) {
   const { state, dev, onClose } = props;
   const [names, setNames] = useState(state.participants.map((p) => p.name).join('\n'));
@@ -32,7 +32,7 @@ export default function AdminPanel(props: Props) {
     <div className="overlay admin" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="admin-card">
         <button className="close-x" onClick={onClose} aria-label="ปิด">✖</button>
-        <h2>⚙️ ตั้งค่างาน</h2>
+        <h2>🛠️ ตั้งค่างาน</h2>
 
         <label className="field">
           <span>รายชื่อผู้ร่วมกิจกรรม (บรรทัดละ 1 คน)</span>
@@ -56,10 +56,11 @@ export default function AdminPanel(props: Props) {
 
         <div className="dev-box">
           <label className="switch">
-            <input type="checkbox" checked={dev} onChange={(e) => props.onDevChange(e.target.checked)} />
             <span>🛠 Dev mode (ข้ามการล็อก)</span>
+            <input type="checkbox" role="switch" checked={dev} onChange={(e) => props.onDevChange(e.target.checked)} />
+            <span className="switch-track" aria-hidden><span className="switch-thumb" /></span>
           </label>
-          <button className="btn" onClick={props.onSimulate} disabled={!dev}>⏱ จำลองนับถอยหลัง 10 วิ</button>
+          {dev && <button className="btn" onClick={props.onSimulate}>⏱ จำลองนับถอยหลัง 10 วิ</button>}
         </div>
       </div>
     </div>

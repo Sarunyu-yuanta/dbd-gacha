@@ -19,7 +19,7 @@ export default function TurnSign({ phase, drawer }: { phase: Phase; drawer: Part
   } else if (phase === 'done') {
     name = '🎊 ครบแล้ว!'; hint = 'หมุนลูกบิดเพื่อดูสรุปผล 🎄';
   } else {
-    name = '📝 ใส่รายชื่อก่อน'; hint = 'กด ⚙️ มุมขวาบนเพื่อเพิ่มรายชื่ออย่างน้อย 2 คน';
+    name = '📝 ใส่รายชื่อก่อน'; hint = 'กด 🛠️ มุมขวาบนเพื่อเพิ่มรายชื่ออย่างน้อย 2 คน';
   }
 
   return (

@@ -10,7 +10,7 @@ type Props = {
 export default function Header({ dev, songName, muted, onToggleMusic, onNextSong, onAdmin }: Props) {
   return (
     <header className="topbar">
-      {dev && <div className="dev-badge">🛠 DEV MODE</div>}
+      {/* DEV MODE badge hidden for now — restore: {dev && <div className="dev-badge">🛠 DEV MODE</div>} */}
       <h1 className="title">
         <span className="title-en">DBD Gacha Gift Exchange</span>
         <span className="title-th">
@@ -21,7 +21,7 @@ export default function Header({ dev, songName, muted, onToggleMusic, onNextSong
         <div className="now-playing">♪ {songName || '—'}</div>
         <button className="icon-btn" onClick={onNextSong} title="เพลงถัดไป">⏭</button>
         <button className="icon-btn" onClick={onToggleMusic} title="เปิด/ปิดเพลง">{muted ? '🔇' : '🔊'}</button>
-        <button className="icon-btn" onClick={onAdmin} title="ตั้งค่า">⚙️</button>
+        <button className="icon-btn admin-btn" onClick={onAdmin}><span aria-hidden>🛠️</span> Admin Setting</button>
       </div>
     </header>
   );
